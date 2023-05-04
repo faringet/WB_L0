@@ -18,7 +18,7 @@ func main() {
 	//opts := []nats.Option{nats.Name("NATS Streaming Example Publisher")}
 
 	// Connect to NATS
-	url := "nats://192.168.31.81:4222"
+	url := "nats://192.168.99.100:4222"
 	nc, err := nats.Connect(url) // потом поменяю на nats.Connect(stan.DefaultNatsURL)
 	if err != nil {
 		log.Fatal(err)
@@ -40,6 +40,7 @@ func main() {
 		return
 	}
 
+	// Генерируем случайное значение orderUid
 	tmp := []byte(order.OrderUid)
 	for i := 0; i < len(order.OrderUid)-4; i++ {
 		if tmp[i] > 0x30 && tmp[i] < 0x39 {
@@ -51,6 +52,7 @@ func main() {
 	order.OrderUid = string(tmp)
 	fmt.Println("result orderUid:", order.OrderUid)
 
+	// Генерируем случайное значение Transaction
 	tmp = []byte(order.Payment.Transaction)
 	for i := 0; i < len(order.OrderUid)-4; i++ {
 		if tmp[i] > 0x30 && tmp[i] < 0x39 {
@@ -62,6 +64,7 @@ func main() {
 	order.Payment.Transaction = string(tmp)
 	fmt.Println("result Transaction:", order.Payment.Transaction)
 
+	// Генерируем случайное значение Rid
 	tmp = []byte(order.Items[0].Rid)
 	for i := 0; i < len(order.Items[0].Rid)-4; i++ {
 		if tmp[i] > 0x30 && tmp[i] < 0x39 {
