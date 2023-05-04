@@ -4,7 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/nats-io/nats.go"
+	"gorm.io/gorm"
 	"log"
+	"nats-testing/initializers"
 	"nats-testing/models"
 	"time"
 )
@@ -32,8 +34,30 @@ func main() {
 			return
 		}
 
-		//fmt.Println(data)
+		//fmt.Println(dataFromNATS)
 		fmt.Println(dataFromNATS.OrderUid)
+
+		orderDB := models.Order{
+			Model:       gorm.Model{},
+			OrderUid:    dataFromNATS.OrderUid,
+			TrackNumber: dataFromNATS.TrackNumber,
+			Entry:       dataFromNATS.Entry,
+			//Delivery:          models.Delivery{},
+			//Payment:           models.Payment{},
+			Items:             dataFromNATS.Items,
+			Locale:            dataFromNATS.Locale,
+			InternalSignature: dataFromNATS.InternalSignature,
+			CustomerId:        dataFromNATS.CustomerId,
+			DeliveryService:   dataFromNATS.DeliveryService,
+			Shardkey:          dataFromNATS.Shardkey,
+			SmId:              dataFromNATS.SmId,
+			DateCreated:       dataFromNATS.DateCreated,
+			OofShard:          dataFromNATS.OofShard,
+		}
+
+		fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
+		fmt.Println(orderDB)
+		initializers.DB.Create(orderDB)
 
 	})
 
