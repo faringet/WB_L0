@@ -11,6 +11,12 @@ import (
 	"time"
 )
 
+func init() {
+	initializers.LoadEnvVariables()
+	initializers.ConnectToDB()
+
+}
+
 func main() {
 	url := "nats://192.168.99.100:4222"
 	nc, err := nats.Connect(url)
@@ -37,7 +43,8 @@ func main() {
 		//fmt.Println(dataFromNATS)
 		fmt.Println(dataFromNATS.OrderUid)
 
-		orderDB := models.Order{
+		// Пишем в БД
+		Order := models.Order{
 			Model:       gorm.Model{},
 			OrderUid:    dataFromNATS.OrderUid,
 			TrackNumber: dataFromNATS.TrackNumber,
@@ -56,8 +63,8 @@ func main() {
 		}
 
 		fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
-		fmt.Println(orderDB)
-		initializers.DB.Create(orderDB)
+		fmt.Println(Order)
+		initializers.DB.Create(&Order)
 
 	})
 
@@ -65,7 +72,7 @@ func main() {
 
 	for {
 		old := count
-		time.Sleep(10 * time.Second) //если за 10 секунд не получили сообщения из NATS - вырубаемся
+		time.Sleep(30 * time.Second) //если за 10 секунд не получили сообщения из NATS - вырубаемся
 		if old == count {
 			break
 		}
