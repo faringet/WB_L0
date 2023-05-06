@@ -18,7 +18,7 @@ func main() {
 	//opts := []nats.Option{nats.Name("NATS Streaming Example Publisher")}
 
 	// Connect to NATS
-	url := "nats://192.168.99.100:4222"
+	url := "nats://192.168.31.81:4222"
 	nc, err := nats.Connect(url) // потом поменяю на nats.Connect(stan.DefaultNatsURL)
 	if err != nil {
 		log.Fatal(err)

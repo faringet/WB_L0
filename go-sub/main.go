@@ -18,7 +18,7 @@ func init() {
 }
 
 func main() {
-	url := "nats://192.168.99.100:4222"
+	url := "nats://192.168.31.81:4222"
 	nc, err := nats.Connect(url)
 	if err != nil {
 		log.Fatal(err)
