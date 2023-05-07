@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"nats-testing/initializers"
 
@@ -46,11 +45,9 @@ func main() {
 			// Отправить ID на страницу результатов
 			c.HTML(200, "result.html", gin.H{"id": m})
 		} else {
-			// Тут пропишу ошибку2 html
-			//todo
+			// Ошибка если такого id нет
 			c.HTML(400, "errorIdNotExist.html", gin.H{"message": "Нет такого ID"})
 		}
-		fmt.Println(m)
 
 	})
 
