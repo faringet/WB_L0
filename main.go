@@ -13,6 +13,10 @@ func init() {
 }
 
 func main() {
+	utils.Migrate()
+	go utils.Sub()
+	utils.Pub()
+
 	router := gin.Default()
 
 	// Устанавливаем путь к папке с шаблонами (views)
