@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Ввод ID</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #8D297F;
+            padding: 20px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #8D297F;
+            padding: 10px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        h1 {
+            color: #BC3D96;
+        }
+
+        label {
+            color: #BC3D96;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #000000;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #EC238D;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #EC238D;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="" alt="L0 Wildberries test task" width="200">
+</header>
+
+<h1>Ввод ID</h1>
+<form action="/process" method="post">
+    <label for="id">Введите ID:</label>
+    <input type="text" id="id" name="id">
+    <br><br>
+    <input type="submit" value="Отправить">
+</form>
+
+<footer>
+    <a href="https://github.com/faringet/NATS_testing" style="color: #ffffff;"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="20"></a>
+</footer>
+</body>
+</html>

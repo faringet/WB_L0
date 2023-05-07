@@ -31,7 +31,7 @@ func main() {
 		// Дополнительная логика
 		if id == "" {
 			// Если ID пустое то выбрасываем ошибку
-			c.HTML(400, "error.html", gin.H{"message": "Введите ID"})
+			c.HTML(400, "errorIdNull.html", gin.H{"message": "Введите ID"})
 			return
 		}
 
@@ -47,7 +47,8 @@ func main() {
 			c.HTML(200, "result.html", gin.H{"id": m})
 		} else {
 			// Тут пропишу ошибку2 html
-			fmt.Println("nfrjuj ytn !!!!!!!!!!!!!!")
+			//todo
+			c.HTML(400, "errorIdNotExist.html", gin.H{"message": "Нет такого ID"})
 		}
 		fmt.Println(m)
 
