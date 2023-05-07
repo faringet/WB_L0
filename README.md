@@ -1,6 +1,6 @@
 # WB_L0 Test task
 В проекте реализован сервис, который подключается к каналу в Nats Streaming, получает данные и сохраняет их в базу данных PostgreSQL и в кэш.
-Сервис также поднимает HTTP-сервер, который предоставляет данные по UID из кэша. Cкрины интерфейса.
+Сервис также поднимает HTTP-сервер, который предоставляет данные по UID из кэша. [**Cкрины интерфейса**](https://github.com/faringet/WB_L0/tree/master/screenshots).
 ___
 ![](https://github.com/faringet/WB_L0/blob/master/screenshots/Board.jpg)
 
