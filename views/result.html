@@ -33,6 +33,21 @@
         p {
             color: #BC3D96;
         }
+        .button {
+            padding: 10px 20px;
+            background-color: #EC238D;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #EC238D;
+        }
     </style>
 </head>
 <body>
@@ -42,6 +57,8 @@
 
 <h1>Данные по ID:</h1>
 <p>{{ .id }}</p>
+
+<a href="/" class="button">На главную</a>
 
 <footer>
     <a href="https://github.com/faringet/NATS_testing" style="color: #ffffff;"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" width="20"></a>
