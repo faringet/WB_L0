@@ -13,8 +13,7 @@ import (
 
 func Sub() {
 
-	url := "nats://192.168.31.81:4222"
-	nc, err := nats.Connect(url)
+	nc, err := nats.Connect(nats.DefaultURL)
 	if err != nil {
 		log.Fatal(err)
 	}

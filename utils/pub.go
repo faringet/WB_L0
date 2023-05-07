@@ -15,8 +15,7 @@ func Pub() {
 	rand.Seed(time.Now().UnixNano())
 
 	// Коннектимся к NATS
-	url := "nats://192.168.31.81:4222"
-	nc, err := nats.Connect(url) // потом поменяю на nats.Connect(stan.DefaultNatsURL)
+	nc, err := nats.Connect(nats.DefaultURL)
 	if err != nil {
 		log.Fatal(err)
 	}
